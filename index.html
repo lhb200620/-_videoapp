@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>斗立短视频Web端</title>
@@ -32,11 +32,69 @@
       <button class="login-btn">登录</button>
     </div>
     <video id="videoPlayer" width="640" height="480" controls onended="loadNextVideo()">
-      <source src="http://127.0.0.1:5000/next_video" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
 
+  <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>开摆不卷的短视频 Web 端</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<body>
+  <div class="leftsidebar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <ul class="categories">
+      <li><button class="category-btn" onclick="showPage('video-page')">推荐</button></li>  
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">知识</button></li>
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">热点</button></li>
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">游戏</button></li>
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">娱乐</button></li>
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">二次元</button></li>
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">音乐</button></li>
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">美食</button></li>
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">体育</button></li>
+      <li><button class="category-btn" onclick="showPage('thumbnail-page')">时尚</button></li>
+    </ul>
+  </div>
+  <div class="topbar">
+    <div class="search-box">
+      <input type="text" placeholder="搜索...">
+      <button class="search-btn">搜索</button>
+    </div>
+    <button class="login-btn">登录</button>
+  </div>
+  <div>
+    <div id="video-page" class="page">
+      <!-- 视频播放窗口的内容 -->
+      <div class="video-player">
+        <video id="video" controls onended="loadNextVideo()">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <div id="thumbnail-page" class="page">
+      <!-- 缩略图展示页面 -->
+      <div class="thumbnail-container">
+        <img id="thumbnail1" src="thumbnail3.jpg" alt="Thumbnail 1" onclick="playVideo('video1.mp4')">
+        <img id="thumbnail2" src="thumbnail3.jpg" alt="Thumbnail 2" onclick="playVideo('video2.mp4')">
+        <img id="thumbnail3" src="thumbnail3.jpg" alt="Thumbnail 3" onclick="playVideo('video3.mp4')">
+        <img id="thumbnail4" src="thumbnail3.jpg" alt="Thumbnail 4" onclick="playVideo('video4.mp4')">
+        <img id="thumbnail5" src="thumbnail3.jpg" alt="Thumbnail 5" onclick="playVideo('video5.mp4')">
+        <img id="thumbnail6" src="thumbnail3.jpg" alt="Thumbnail 6" onclick="playVideo('video6.mp4')">
+        <img id="thumbnail7" src="thumbnail3.jpg" alt="Thumbnail 7" onclick="playVideo('video7.mp4')">
+        <img id="thumbnail8" src="thumbnail3.jpg" alt="Thumbnail 8" onclick="playVideo('video8.mp4')">
+      </div>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

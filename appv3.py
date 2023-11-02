@@ -22,12 +22,23 @@ db_config = {
     'cursorclass': pymysql.cursors.DictCursor
 }
 
-def get_video_url():
+def load_all_video_ids():
     connection = pymysql.connect(**db_config)
     try:
         with connection.cursor() as cursor:
-            sql = "SELECT video_name, video_domain FROM video_hub ORDER BY RAND() LIMIT 1"
+            sql = "SELECT video_id FROM video_hub"
             cursor.execute(sql)
+            all_ids = {row['video_id'] for row in cursor.fetchall()}
+            return all_ids
+    finally:
+        connection.close()
+
+def get_video_url_from_id(video_id):
+    connection = pymysql.connect(**db_config)
+    try:
+        with connection.cursor() as cursor:
+            sql = "SELECT video_name, video_domain FROM video_hub WHERE video_id = %s LIMIT 1"
+            cursor.execute(sql, (video_id,))
             result = cursor.fetchone()
             video_name = result['video_name']
             video_domain = result['video_domain']
@@ -38,26 +49,34 @@ def get_video_url():
     finally:
         connection.close()
 
+all_video_ids = load_all_video_ids()
+
+
+def get_random_video_url():
+    video_id = all_video_ids.pop()  # 从集合中随机获取一个ID并删除它
+    return get_video_url_from_id(video_id)
+
 def ensure_next_urls_filled():
     while len(nextUrls) < 10:
-        nextUrls.append(get_video_url())
+        nextUrls.append(get_random_video_url())
 
-nextUrls = [get_video_url() for _ in range(10)]
+nextUrls = [get_random_video_url() for _ in range(10)]
 prevUrls = []
 
 @app.route('/next_video')
 def next_video():
-    current_url = nextUrls.pop(0)  # 获取并移除下一个视频链接
-    prevUrls.append(current_url)  # 将当前视频链接添加到prevUrls
+    print("receive a request")
+    prevUrls.append(nextUrls.pop(0))
+
     ensure_next_urls_filled()
-    return stream_video_content(current_url)
+    return stream_video_content(nextUrls[0])
 
 @app.route('/pre_video')
 def pre_video():
     if prevUrls:
-        current_url = prevUrls.pop()  # 获取并移除上一个视频链接
-        nextUrls.insert(0, current_url)  # 将当前视频链接添加到nextUrls的开头
-        return stream_video_content(current_url)
+        nextUrls.insert(0, prevUrls.pop())
+
+        return stream_video_content(nextUrls[0])
     return "", 404
 
 # @app.route('/stream_video')
