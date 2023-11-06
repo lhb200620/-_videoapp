@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>开摆不卷的短视频 Web 端</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<body>
+  <div class="leftsidebar">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <ul class="categories">
+      <li><button id="leftButton00" class="category-btn" onclick="showPage('video-page')">推荐</button></li>  
+      <li><button id="leftButton01" class="category-btn" onclick="showPage('thumbnail-page')">知识</button></li>
+      <li><button id="leftButton02" class="category-btn" onclick="showPage('thumbnail-page')">热点</button></li>
+      <li><button id="leftButton03" class="category-btn" onclick="showPage('thumbnail-page')">游戏</button></li>
+      <li><button id="leftButton04" class="category-btn" onclick="showPage('thumbnail-page')">娱乐</button></li>
+      <li><button id="leftButton05" class="category-btn" onclick="showPage('thumbnail-page')">二次元</button></li>
+      <li><button id="leftButton06" class="category-btn" onclick="showPage('thumbnail-page')">音乐</button></li>
+      <li><button id="leftButton07" class="category-btn" onclick="showPage('thumbnail-page')">美食</button></li>
+      <li><button id="leftButton08" class="category-btn" onclick="showPage('thumbnail-page')">体育</button></li>
+      <li><button id="leftButton09" class="category-btn" onclick="showPage('thumbnail-page')">时尚</button></li>
+    </ul>
+  </div>
+  <div class="topbar">
+    <div class="search-box">
+      <input type="text" placeholder="搜索...">
+      <button class="search-btn">搜索</button>
+    </div>
+    <button class="login-btn">登录</button>
+  </div>
+  <div>
+    <div id="video-page" class="page">
+      <!-- 视频播放窗口的内容 -->
+      <div class="video-player">
+        <video id="video" controls onended="loadNextVideo()"></video>
+      </div>
+      <div class="toggle-button-container">
+        <button class="toggle-button">&#8593;</button>
+        <button class="toggle-button">&#8595;</button>
+      </div>
+    </div>
+    <div id="thumbnail-page" class="page">
+      <!-- 缩略图展示页面 -->
+      <div class="thumbnail-container">
+        <img id="thumbnail1" class="imageFrame" alt="Thumbnail 1" onclick="playVideo('1')">
+        <img id="thumbnail2" class="imageFrame" alt="Thumbnail 2" onclick="playVideo('2')">
+        <img id="thumbnail3" class="imageFrame" alt="Thumbnail 3" onclick="playVideo('3')">
+        <img id="thumbnail4" class="imageFrame" alt="Thumbnail 4" onclick="playVideo('4')">
+        <img id="thumbnail5" class="imageFrame" alt="Thumbnail 5" onclick="playVideo('5')">
+        <img id="thumbnail6" class="imageFrame" alt="Thumbnail 6" onclick="playVideo('6')">
+        <img id="thumbnail7" class="imageFrame" alt="Thumbnail 7" onclick="playVideo('7')">
+        <img id="thumbnail8" class="imageFrame" alt="Thumbnail 8" onclick="playVideo('8')">
+      </div>
+    </div>
+    <div id="thumbnail-video-page" class="page">
+      <!-- 视频播放窗口的内容 -->
+      <div class="video-player">
+        <video id="video" controls onended="loadNextVideo()"></video>
+      </div>
+      <div class="toggle-button-container">
+        <button class="toggle-button">&#8593;</button>
+        <button class="toggle-button">&#8595;</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
