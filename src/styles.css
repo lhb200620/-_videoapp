@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+  }
+
+  .leftsidebar {
+    /* 左边栏样式设置 */
+    /* 宽度设置为整个页面的 15%，高度设置为整个页面的 100%， 背景色设置为暗黑色 #333333，向左浮动 */
+    width: 15vw;  
+    height: 100vh;
+    background-color: #333333;
+    float: left;
+  }
+
+  .logo {
+    /* logo样式设置 */
+    /* 最大宽度设置为左边栏的 100%，长度设置为左边栏的 15% */
+    /* 弹性布局 + 水平居中 + 垂直居中 */
+    width: 15vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .categories {
+    /* 分类列表样式设置 */
+    /* 无项目符号类型 + 列表的内边距为 0 + 列表的外边距为 0 */    
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .category-btn {
+    /* 分类按钮样式设置 */
+    /* 宽度设置为左边栏的 100%，按钮的内边距设置为 15 像素，移除按钮的边框（线） */
+    /* 按钮文字颜色设置为 #cccccc，背景颜色设置为 #333333，文字内容居中对齐，鼠标移动到该位置变为手形 */
+    width: 100%;
+    padding: 15px;
+    border: none;
+    color: #cccccc;
+    background-color: #333333;
+    text-align: center;
+    cursor: pointer; 
+  }  
+
+  .category-btn:hover {
+    /* 鼠标悬停时-分类按钮样式设置 */
+    /* 按钮文字颜色变更为 #ffffff，背景颜色变更为 #666666 */    
+    color: #ffffff;
+    background-color: #666666;
+  }
+
+  .topbar {
+    /* 上边栏样式设置 */
+    /* 高度设置为整个页面的 10%， 背景色设置为暗黑色 #333333 */
+    /* 垂直方向上居中对齐，使用 Flexbox 布局模型将导航栏的子元素排列为一行 */ 
+    height: 10vh;
+    background-color: #333333;
+    align-items: center;
+    display: flex;
+  }
+
+  .search-box {
+    /* 搜索框样式设置 */
+    /* 让搜索框根据可用空间进行自动扩展，以填充剩余的空间 */
+    /* 设置搜索框的外边距：上下外边距为 0 左右外边距为窗口 30 % */
+    flex-grow: 1;
+    margin: 0 30vw
+  }
+  
+  .search-box input[type="text"] {
+    /* 搜索框输入文本设置 */
+    /* 输入文本将占据 .search-box 容器中的剩余空间，在水平方向上自动拓展 */
+    /* 文字颜色设置为 #ffffff，背景色设置为暗黑色 #333333 */
+    flex: 1;
+    color: #ffffff;
+    background-color: #333333;
+  }
+
+  .search-box .search-btn {
+    /* 搜索按钮样式设置（.search-btn 在 .search-box 内） */
+    /* 按钮的上下内边距设置为 2 像素，左右内边距为 5 像素，左外边距为 10 像素（距离 .search-btn 10 像素） */
+    /* 边框类型为“浮出”，文字颜色设置为 #000000，按钮颜色为淡蓝色 #aaaaaa，鼠标移动到该位置变为手形 */
+    padding: 1px 5px;
+    margin-left: 10px;
+    border-style: outset;
+    color: #000000;
+    background-color: #aaaaaa;   
+    cursor: pointer; 
+  }
+
+  .search-btn:hover {
+    /* 鼠标悬停时-搜索按钮样式设置 */
+    /* 按钮文字颜色变更为 #ffffff，背景颜色变更为 #6666ff */    
+    color: #ffffff;
+    background-color: #6666ff;
+  }
+
+  .login-btn {
+    /* 登录按钮样式设置 */
+    /* 按钮的上下内边距设置为 5 像素，左右内边距为 10 像素 */
+    /* 右外边距为 50 像素，边框类型为“花边”，鼠标移动到该位置变为手形 */
+    /* 文字颜色设置为 #ffffff，按钮颜色为红色 #ff0000 */
+    padding: 5px 10px;
+    margin-right: 50px;
+    border: groove;
+    cursor: pointer;
+    color: #ffffff;   
+    background-color: #ff0000;
+  }
+
+  .login-btn:hover {
+    /* 鼠标悬停时-登录按钮样式设置 */
+    /* 按钮文字颜色变更为 #000000，背景颜色变更为绿色 #00ff00 */    
+    color: #000000;   
+    background-color: #00ff00;
+  }
+
+  .page {
+    /* 页面显示设置 */
+    /* 默认所有页面全都不显示 */
+    display: none;
+  }
+
+  .video-player {
+    /* 视频播放页面样式设置 */
+    /* 绝对位置：距离顶部为窗口的 10%（上边栏宽度），距离左侧为窗口的 15%（左边栏宽度） */
+    /* 绝对位置：距离底部 5 像素，距离右侧 50 像素，背景色为黑色 #000000 */
+    position: absolute;
+    top: 10vh;
+    bottom: 5px;
+    left: 15vw;
+    right: 50px;
+    background-color: #000000;
+  }
+
+  .video-player video {
+    /* 视频样式设置 */
+    /* 视频元素宽度/高度设置为视频播放器宽度的 100% */
+    /* 确保视频在保持其纵横比的同时，完全包含在视频元素的框中（避免视频变形或裁剪） */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .toggle-button-container {
+    /* 切换按钮样式设置 */
+    /* 设置Flex布局自动调整，方向为纵向，水平居中 + 竖直居中 */
+    /* 按钮间距为视频播放页面的 10%，绝对位置：距离顶部为视频页面的 40%，距离右侧 5 像素 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10vh;
+    position: absolute;
+    top: 40vh;
+    right: 5px;
+  }
+  
+  .toggle-button {
+    /* 切换按钮字体设置 */
+    /* 字体大小 48 像素，颜色为白色 #ffffff，加粗 */
+    /* 无背景，无边框，鼠标移动到该位置变为手形 */
+    font-size: 48px;
+    color: #ffffff;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .thumbnail-container {
+    /* 缩略图显示页面样式设置 */
+    /* 将缩略图容器的显示方式设置为弹性布局，当子项在容器中无法一行容纳时允许换行显示 */
+    /* 设置子项在水平上的对齐方式为“居中”，在垂直上的对齐方式为“居中” */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .thumbnail-container img {
+    /* 缩略图样式设置 */
+    /* 每个缩略图宽度为 250 像素，高度为 300 像素，上下外边距为 20 像素，左右外边距为 40 像素 */
+    /* 对图片进行缩放使其完全填充容器，鼠标移动到该位置变为手形 */
+    width: 250px;
+    height: 300px;
+    margin: 20px 40px;
+    object-fit: cover;
+    cursor: pointer;
+  }  
+
+
+
+
+
+
